@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats Information</title>
+    <script src="dom.js"></script>
+    <style>
+        .body {
+            display: grid;
+            justify-content: center;
+        }
+        .container{
+            display: flex;
+        }
+        .cat-card {
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .cat-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="catId">
+    </div>
+    <script>
+        let catId = document.getElementById('catId');
+        cats.forEach(cat => {
+            let card = document.createElement('div');
+            card.classList.add('cat-card');
+
+            let img = document.createElement('img');
+            img.src = cat.img_link;
+            img.classList.add('cat-image');
+
+            let age = document.createElement('p')
+            age.style.fontSize = '22px'
+            age.innerHTML = `Возраст: ${cat.age} лет`
+            age.style.fontFamily = 'monospace'
+            document.getElementById('catId')
+            
+            let name = document.createElement('h2');
+            name.innerHTML = cat.name;
+            name.style.fontFamily = 'monospace'
+            name.style.fontSize = '30px'
+            document.getElementById(catId)
+
+            let description = document.createElement('p');
+            description.textContent = cat.description;
+
+            card.appendChild(name);
+            card.appendChild(img);
+            card.appendChild(age)
+            
+            card.appendChild(description);
+
+            catId.appendChild(card);
+        });
+    </script>
+</body>
+</html>
